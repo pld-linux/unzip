@@ -1,7 +1,10 @@
 Summary:	Unpacks .zip files such as those made by pkzip under DOS
 Summary(de):	entpackt .zip-Dateien (etwa mit pkzip unter DOS erstellte) 
+Summary(es):	Descompacta archivos con extensión .zip, como los que crea pkzip en DOS
 Summary(fr):	décompresse les fichiers .zip créés par pkzip sous DOS
+Summary(ja):	Zip¥Õ¥¡¥¤¥ë²òÅà¥æ¡¼¥Æ¥£¥ê¥Æ¥£¡¼
 Summary(pl):	Unzip rozpakowuje pliki skompresowane programem pkzip i zgodnymi
+Summary(pt_BR):	Descompacta arquivos com extensão .zip, como os criados pelo pkzip no DOS
 Summary(tr):	pkzip ve benzeri programlarýn ürettiði zip arþivlerini açar
 Name:		unzip
 Version:	5.42
@@ -30,16 +33,35 @@ kompatibel zu Archiven, die mit PKWARE ZIP und PKUNZIP für MS-DOS
 komprimiert wurden, doch viele der Optionen und Standardeinstellungen
 sind anders.
 
+%description -l es
+Descompacta archivos con extensión .zip, como los que se crean por
+pkzip en DOS
+
 %description -l fr
 unzip liste, teste ou extrait des fichiers d'une archive ZIP. zip crée
 des archives ZIP ; les deux programmes sont compatibles avec les
 archives créées avec PKZIP et PKUNZIP de PKWARE pour MS-DOS, mais les
 options ou comportements par défaut diffèrent fréquemment
 
+%description -l ja
+unzip ¥æ¡¼¥Æ¥£¥ê¥Æ¥£¤Ï¡¢zip ½ñ¸Ë¤Î¥Õ¥¡¥¤¥ëÉ½¼¨¡¢¥Æ¥¹¥È¡¢²òÅà¤ò¹Ô¤¦¤Î¤Ë
+»ÈÍÑ¤·¤Þ¤¹¡£zip ½ñ¸Ë¤Ï MS-DOS ¥·¥¹¥Æ¥à¤Ç¼ç¤Ë¸«¤é¤ì¤Þ¤¹¡£ zip
+¥æ¡¼¥Æ¥£¥ê¥Æ¥£¤Ï zip ½ñ¸Ë¤òºî¤ë zip ¥Ñ¥Ã¥±¡¼¥¸¤Ë´Þ¤Þ¤ì¤Þ¤¹¡£ zip ¤È
+unzip ¤Ï¤É¤Á¤é¤â MS-DOS ¾å¤Î PKWARE(R) ¤Î PKZIP ¤Ë¤è¤Ã¤ÆºîÀ®¤µ¤ì¤¿
+½ñ¸Ë¤È¸ß´¹À­¤¬¤¢¤ê¤Þ¤¹¤¬¡¢¥×¥í¥°¥é¥à¤Î¥ª¥×¥·¥ç¥ó¤È¥Ç¥Õ¥©¥ë¥È¤Î¿¶Éñ¤Ï
+¤¤¤¯¤Ä¤«¤ÎÅÀ¤Ç°ã¤¤¤¬¤¢¤ê¤Þ¤¹¡£
+
+zip ½ñ¸Ë¤Î¥Õ¥¡¥¤¥ëÉ½¼¨¡¢¥Æ¥¹¥È¡¢²òÅà¤ò¹Ô¤¦É¬Í×¤¬¤¢¤ë¤Ê¤é¡¢ unzip
+¥Ñ¥Ã¥±¡¼¥¸¤ò¥¤¥ó¥¹¥È¡¼¥ë¤·¤Þ¤·¤ç¤¦¡£
+
 %description -l pl
 Unzip pozwala na odczytanie zawarto¶ci, przetestowanie i rozpakowanie
 archiwum ZIP, czêsto spotykanego w systemach opartych o MS-DOS.
 Komplementarny program, zip, potrafi tak¿e tworzyæ archiwa ZIP.
+
+%description -l pt_BR
+Descompacta arquivos com extensão .zip, como os criados pelo pkzip no
+DOS
 
 %description -l tr
 unzip, MS-DOS sistemlerinde sýkça rastlanan ZIP arþivlerini listeler,
