@@ -10,13 +10,12 @@ Summary(tr):	pkzip ve benzeri programlarýn ürettiði zip arþivlerini açar
 Summary(uk):	òÏÚÐÁËÏ×Õ×ÁÞ ÆÁÊÌ¦× .zip
 Name:		unzip
 Version:	5.50
-Release:	2
+Release:	3
 License:	distributable
 Group:		Applications/Archiving
 Source0:	ftp://ftp.info-zip.org/pub/infozip/src/%{name}550.tar.gz
 Source1:	%{name}-non-english-man-pages.tar.bz2
 Patch0:		%{name}-opt.patch
-Patch1:		%{name}-security-fix_directory_traversal.patch
 URL:		http://www.info-zip.org/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
