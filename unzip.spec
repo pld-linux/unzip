@@ -71,7 +71,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644, root, root, 755)
 %doc README.gz BUGS.gz
 %attr(755, root, root) /usr/bin/*
-%attr(644, root,  man) %{_mandir}/man1/*
+%{_mandir}/man1/*
 
 %changelog
 * Thu Feb 10 1999 Micha³ Kuratczyk <kurkens@polbox.com>
