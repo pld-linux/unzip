@@ -14,7 +14,9 @@ Release:	8
 License:	distributable
 Group:		Applications/Archiving
 Source0:	ftp://ftp.info-zip.org/pub/infozip/src/%{name}550.tar.gz
+# Source0-md5: 798592d62e37f92571184236947122ed
 Source1:	%{name}-non-english-man-pages.tar.bz2
+# Source1-md5: d7f8b0b09f6e8d89591b4dc25e335764
 Patch0:		%{name}-opt.patch
 URL:		http://www.info-zip.org/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
