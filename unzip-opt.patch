@@ -1,0 +1,13 @@
+--- unzip-5.31/unix/Makefile~	Tue Oct 13 21:29:39 1998
++++ unzip-5.31/unix/Makefile	Tue Oct 13 21:33:42 1998
+@@ -706,8 +706,8 @@
+ linux:		unix_make
+ 	@echo 'NOTE:  use linux_noasm target for non-Intel Linux compiles.'
+ 	$(MAKE) unzips CC=gcc LD=gcc AS=gcc\
+-	 CF="-O3 -Wall -I. -DASM_CRC $(LOC)"\
+-	 AF="-Di386 $(AF)" CRC32=crc_gcc
++	 CF="-O3 -Wall -I. -DASM_CRC $(LOC) $(CFLAGS)"\
++	 AF="-Di386 $(AF) $(LDFLAGS)" CRC32=crc_gcc
+ # GRR:  this echo is pointless; if user gets this far, no difference to install
+ #	@echo 'Be sure to use the install_asm target rather than the install target'
+ 
