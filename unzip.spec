@@ -10,12 +10,13 @@ Summary(tr):	pkzip ve benzeri programlarЩn ЭrettiПi zip arЧivlerini aГar
 Summary(uk):	Розпаковувач файл╕в .zip
 Name:		unzip
 Version:	5.50
-Release:	1
+Release:	2
 License:	distributable
 Group:		Applications/Archiving
 Source0:	ftp://ftp.info-zip.org/pub/infozip/src/%{name}550.tar.gz
 Source1:	%{name}-non-english-man-pages.tar.bz2
 Patch0:		%{name}-opt.patch
+Patch1:		%{name}-security-fix_directory_traversal.patch
 URL:		http://www.info-zip.org/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -87,7 +88,8 @@ PKZIP та PKUNZIP в╕д PKWARE для MS-DOS, але в багатьох випадках опц╕╖
 
 %prep
 %setup -q
-%patch -p1
+%patch0 -p1
+%patch1 -p1
 rm -f Makefile
 ln -sf unix/Makefile Makefile
 
