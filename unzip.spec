@@ -48,8 +48,7 @@ ve PKUNZIP uygulamalarý ile uyumludur ancak çoðu durumda seçeneklerinin
 kullanýlýþý farklýdýr.
 
 %prep
-%setup -q 
-unzip -o $RPM_SOURCE_DIR/zcrypt28.zip
+%setup -q
 
 %patch -p1 
 ln -sf unix/Makefile Makefile
