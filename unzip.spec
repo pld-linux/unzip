@@ -4,12 +4,12 @@ Summary(fr): décompresse les fichiers .zip créés par pkzip sous DOS
 Summary(pl): Unzip rozpakowuje pliki skompresowane programem pkzip i zgodnymi
 Summary(tr): pkzip ve benzeri programlarýn ürettiði zip arþivlerini açar
 Name:        unzip
-Version:     5.31
-Release:     4
+Version:     5.40
+Release:     1
 Copyright:   distributable
 Group:       Utilities/Archiving
-Source:      ftp://sunsite.unc.edu/pub/Linux/utils/compress/%{name}531.tar.gz
-Patch:       %{name}-%{version}-opt.patch
+Source:      ftp://sunsite.unc.edu/pub/Linux/utils/compress/%{name}540.tar.gz
+Patch:       unzip-opt.patch
 Buildroot:   /tmp/%{name}-%{version}-root
 
 %description
@@ -45,20 +45,22 @@ ve PKUNZIP uygulamalarý ile uyumludur ancak çoðu durumda seçeneklerinin
 kullanýlýþý farklýdýr.
 
 %prep
-%setup -c -q 
+%setup -q 
 %patch -p1 
 ln -sf unix/Makefile Makefile
 
 %build
 %ifarch i386
-CFLAGS=$RPM_OPT_FLAGS LDFLAGS=-s make linux 
+CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" make linux 
 %else
-CFLAGS=$RPM_OPT_FLAGS LDFLAGS=-s make linux_noasm 
+CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" make linux_noasm 
 %endif
 
 %install
 rm -rf $RPM_BUILD_ROOT 
 make prefix=$RPM_BUILD_ROOT/usr install
+
+gzip -9nf $RPM_BUILD_ROOT/usr/man/man1/*
 
 %clean
 rm -rf $RPM_BUILD_ROOT 
@@ -70,6 +72,11 @@ rm -rf $RPM_BUILD_ROOT
 %attr(644, root,  man) /usr/man/man1/*
 
 %changelog
+* Fri Dec 11 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [5.40-1]
+- removed -c %setup option,
+- added gzipping man pages.
+
 * Tue Oct 13 1998 Marcin Korzonek <mkorz@shadow.eu.org>
   [5.31-4]
 - added pl translation,
