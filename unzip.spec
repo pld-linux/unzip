@@ -1,5 +1,5 @@
 Summary:	Unpacks .zip files such as those made by pkzip under DOS
-Summary(de):	entpackt .zip-Dateien (etwa mit pkzip unter DOS erstellte) 
+Summary(de):	entpackt .zip-Dateien (etwa mit pkzip unter DOS erstellte)
 Summary(es):	Descompacta archivos con extensión .zip, como los que crea pkzip en DOS
 Summary(fr):	décompresse les fichiers .zip créés par pkzip sous DOS
 Summary(ja):	Zip¥Õ¥¡¥¤¥ë²òÅà¥æ¡¼¥Æ¥£¥ê¥Æ¥£¡¼
@@ -70,7 +70,7 @@ durumda seçeneklerinin kullanýlýþý farklýdýr.
 
 %prep
 %setup -q
-%patch -p1 
+%patch -p1
 rm -f Makefile
 ln -sf unix/Makefile Makefile
 
@@ -94,7 +94,7 @@ bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 gzip -9nf README BUGS
 
 %clean
-rm -rf $RPM_BUILD_ROOT 
+rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
