@@ -5,7 +5,9 @@ Summary(fr):	dИcompresse les fichiers .zip crИИs par pkzip sous DOS
 Summary(ja):	Zip╔у╔║╔╓╔К╡РеЮ╔Ф║╪╔ф╔ё╔Й╔ф╔ё║╪
 Summary(pl):	Unzip rozpakowuje pliki skompresowane programem pkzip i zgodnymi
 Summary(pt_BR):	Descompacta arquivos com extensЦo .zip, como os criados pelo pkzip no DOS
+Summary(ru):	Распаковщик файлов .zip
 Summary(tr):	pkzip ve benzeri programlarЩn ЭrettiПi zip arЧivlerini aГar
+Summary(uk):	Розпаковувач файл╕в .zip
 Name:		unzip
 Version:	5.50
 Release:	1
@@ -62,12 +64,26 @@ Komplementarny program, zip, potrafi tak©e tworzyФ archiwa ZIP.
 Descompacta arquivos com extensЦo .zip, como os criados pelo pkzip no
 DOS
 
+%description -l ru
+Unzip выдает список, проверяет целостность и извлекает файлы из
+архивов ZIP, довольно широко распространенных в мире DOS.
+Сопутствующая программа, zip, создает архивы ZIP. Обе программы
+совместимы с архивами созданными PKZIP и PKUNZIP от PKWARE для MS-DOS,
+но во многих случаях опции или умолчания отличаются.
+
 %description -l tr
 unzip, MS-DOS sistemlerinde sЩkГa rastlanan ZIP arЧivlerini listeler,
 iГeriklerini doПrular ve aГar. Bu programa eЧlik eden zip, ZIP
 arЧivleri oluЧturmakta kullanЩlЩr. Her iki program da MS-DOS iГin
 PKWARE'in PKZIP ve PKUNZIP uygulamalarЩ ile uyumludur ancak ГoПu
 durumda seГeneklerinin kullanЩlЩЧЩ farklЩdЩr.
+
+%description -l uk
+Unzip вида╓ перел╕к, перев╕ря╓ ц╕л╕сн╕сть та видобува╓ файли з арх╕в╕в
+ZIP, досить широко розповсюджених у св╕т╕ DOS. В╕дпов╕дна програма,
+zip, створю╓ арх╕ви ZIP. Обидв╕ програми сум╕сн╕ з арх╕вами створеними
+PKZIP та PKUNZIP в╕д PKWARE для MS-DOS, але в багатьох випадках опц╕╖
+або умовчання в╕др╕зняються.
 
 %prep
 %setup -q
