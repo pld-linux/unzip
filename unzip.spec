@@ -11,7 +11,7 @@ Group:       Utilities/Archiving
 Group(pl):   Narzêdzia/Archiwizacja
 Source:      ftp://sunsite.unc.edu/pub/Linux/utils/compress/%{name}540.tar.gz
 Patch:       %{name}-opt.patch
-Buildroot:   /tmp/%{name}-%{version}-root
+BuildRoot:	/tmp/%{name}-%{version}-root
 
 %description
 unzip will list, test, or extract files from a ZIP archive, commonly
