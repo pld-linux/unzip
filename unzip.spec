@@ -61,7 +61,7 @@ CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" make linux_noasm
 rm -rf $RPM_BUILD_ROOT 
 make prefix=$RPM_BUILD_ROOT/usr install
 
-gzip -9nf $RPM_BUILD_ROOT/usr/man/man1/*
+gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/*
 gzip -9nf README BUGS
 
 %clean
@@ -71,7 +71,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644, root, root, 755)
 %doc README.gz BUGS.gz
 %attr(755, root, root) /usr/bin/*
-%attr(644, root,  man) /usr/man/man1/*
+%attr(644, root,  man) %{_mandir}/man1/*
 
 %changelog
 * Thu Feb 10 1999 Micha³ Kuratczyk <kurkens@polbox.com>
