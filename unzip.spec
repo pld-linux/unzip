@@ -7,13 +7,14 @@ Summary(pl):	Unzip rozpakowuje pliki skompresowane programem pkzip i zgodnymi
 Summary(pt_BR):	Descompacta arquivos com extensão .zip, como os criados pelo pkzip no DOS
 Summary(tr):	pkzip ve benzeri programlarýn ürettiði zip arþivlerini açar
 Name:		unzip
-Version:	5.42
-Release:	2
+Version:	5.50
+Release:	1
 License:	distributable
 Group:		Applications/Archiving
-Source0:	ftp://ftp.freesoftware.com/pub/infozip/src/%{name}542.tar.gz
+Source0:	ftp://ftp.info-zip.org/pub/infozip/src/%{name}550.tar.gz
 Source1:	%{name}-non-english-man-pages.tar.bz2
 Patch0:		%{name}-opt.patch
+URL:		http://www.info-zip.org/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
