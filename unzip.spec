@@ -5,11 +5,12 @@ Summary(pl):	Unzip rozpakowuje pliki skompresowane programem pkzip i zgodnymi
 Summary(tr):	pkzip ve benzeri programlarýn ürettiði zip arþivlerini açar
 Name:		unzip
 Version:	5.42
-Release:	1
+Release:	2
 Copyright:	distributable
 Group:		Utilities/Archiving
 Group(pl):	Narzêdzia/Archiwizacja
 Source0:	ftp://ftp.freesoftware.com/pub/infozip/src/%{name}542.tar.gz
+Source1:	unzip-non-english-man-pages.tar.bz2
 Patch:		%{name}-opt.patch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -67,6 +68,8 @@ rm -rf $RPM_BUILD_ROOT
 	prefix=$RPM_BUILD_ROOT/%{_prefix} \
 	MANDIR=$RPM_BUILD_ROOT/%{_mandir}/man1
 
+bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
+
 gzip -9nf README BUGS
 
 %clean
@@ -77,3 +80,5 @@ rm -rf $RPM_BUILD_ROOT
 %doc *.gz
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man*/*
+%lang(fi) %{_mandir}/fi/man*/*
+%lang(pl) %{_mandir}/pl/man1/*
