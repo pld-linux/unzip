@@ -4,14 +4,12 @@ Summary(fr):	décompresse les fichiers .zip créés par pkzip sous DOS
 Summary(pl):	Unzip rozpakowuje pliki skompresowane programem pkzip i zgodnymi
 Summary(tr):	pkzip ve benzeri programlarýn ürettiði zip arþivlerini açar
 Name:		unzip
-Version:	5.40
-Release:	3
+Version:	5.42
+Release:	1
 Copyright:	distributable
 Group:		Utilities/Archiving
 Group(pl):	Narzêdzia/Archiwizacja
-Source0:	ftp://sunsite.unc.edu/pub/Linux/utils/compress/%{name}540.tar.gz
-# The original source is at ftp://ftp.icce.rug.nl/infozip/src/zcrypt28.zip
-Source1:	zcrypt28.tar.bz2
+Source0:	ftp://ftp.freesoftware.com/pub/infozip/src/%{name}542.tar.gz
 Patch:		%{name}-opt.patch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -51,21 +49,24 @@ kullanýlýþý farklýdýr.
 %setup -q
 
 %patch -p1 
+rm -f Makefile
 ln -sf unix/Makefile Makefile
 
 %build
-%ifarch i386 i486 i586 i686
-CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" make linux 
+%ifarch %{ix86}
+CFLAGS="%{?debug:-O0 -g}%{!?debug:$RPM_OPT_FLAGS}" make linux
 %else
-CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" make linux_noasm 
+CFLAGS="%{?debug:-O0 -g}%{!?debug:$RPM_OPT_FLAGS}" make linux_noasm
 %endif
 
 %install
 rm -rf $RPM_BUILD_ROOT 
-%{__make} install prefix=$RPM_BUILD_ROOT/%{_prefix} \
+
+%{__make} \
+	install \
+	prefix=$RPM_BUILD_ROOT/%{_prefix} \
 	MANDIR=$RPM_BUILD_ROOT/%{_mandir}/man1
 
-gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/*
 gzip -9nf README BUGS
 
 %clean
@@ -73,6 +74,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README.gz BUGS.gz
+%doc *.gz
 %attr(755,root,root) %{_bindir}/*
-%{_mandir}/man1/*
+%{_mandir}/man*/*
