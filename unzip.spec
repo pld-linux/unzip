@@ -9,16 +9,16 @@ Summary(ru):	Распаковщик файлов .zip
 Summary(tr):	pkzip ve benzeri programlarЩn ЭrettiПi zip arЧivlerini aГar
 Summary(uk):	Розпаковувач файл╕в .zip
 Name:		unzip
-Version:	5.50
-Release:	11
+Version:	5.51
+Release:	1
 License:	distributable
 Group:		Applications/Archiving
-Source0:	ftp://ftp.info-zip.org/pub/infozip/src/%{name}550.tar.gz
-# Source0-md5: 798592d62e37f92571184236947122ed
+#Source0:	ftp://ftp.info-zip.org/pub/infozip/src/%{name}551.tar.gz
+Source0:	ftp://sunsite.icm.edu.pl/pub/unix/archiving/info-zip/src/%{name}551.tar.gz
+# Source0-md5:	8a25712aac642430d87d21491f7c6bd1
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
-# Source1-md5: d7f8b0b09f6e8d89591b4dc25e335764
+# Source1-md5:	d7f8b0b09f6e8d89591b4dc25e335764
 Patch0:		%{name}-opt.patch
-Patch1:		%{name}-5.50-dotdot.patch
 URL:		http://www.info-zip.org/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -91,7 +91,6 @@ PKZIP та PKUNZIP в╕д PKWARE для MS-DOS, але в багатьох випадках опц╕╖
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 rm -f Makefile
 ln -sf unix/Makefile Makefile
