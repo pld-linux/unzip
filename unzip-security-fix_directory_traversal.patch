@@ -1,0 +1,28 @@
+diff -urN unzip-5.50.orig/extract.c unzip-5.50/extract.c
+--- unzip-5.50.orig/extract.c	Thu Jan  3 20:30:32 2002
++++ unzip-5.50/extract.c	Mon Oct 14 19:00:02 2002
+@@ -172,6 +172,8 @@
+ #ifndef WINDLL
+    static ZCONST char Far ReplaceQuery[] =
+      "replace %s? [y]es, [n]o, [A]ll, [N]one, [r]ename: ";
++    static ZCONST char Far TraversalWarning[] = 
++      "%s skipped because of directory traversal\n";
+    static ZCONST char Far AssumeNone[] = " NULL\n(assuming [N]one)\n";
+    static ZCONST char Far NewNameQuery[] = "new name: ";
+    static ZCONST char Far InvalidResponse[] = "error:  invalid response [%c]\n";
+@@ -1284,6 +1286,15 @@
+                 } /* end switch (*answerbuf) */
+ #endif /* ?WINDLL */
+             } /* end if (query) */
++ 		if(*__G__ G.filename=='/' || !strncmp(__G__ G.filename, "../", 3)
++ 		    || strstr(__G__ G.filename,"/../")){
++                         skip_entry = SKIP_Y_EXISTING;
++ #ifndef WINDLL
++                     Info(slide, 0x81, ((char *)slide,
++                       LoadFarString(TraversalWarning),
++                       FnFilter1(G.filename)));
++ #endif
++ 		}
+             if (skip_entry != SKIP_NO) {
+ #ifdef WINDLL
+                 if (skip_entry == SKIP_Y_EXISTING) {
