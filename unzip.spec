@@ -113,7 +113,6 @@ rm -rf $RPM_BUILD_ROOT
 
 bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
