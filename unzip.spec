@@ -10,7 +10,8 @@ Copyright:	distributable
 Group:		Utilities/Archiving
 Group(pl):	Narzêdzia/Archiwizacja
 Source0:	ftp://sunsite.unc.edu/pub/Linux/utils/compress/%{name}540.tar.gz
-Source1:	ftp://ftp.icce.rug.nl/infozip/src/zcrypt28.zip
+# The original source is at ftp://ftp.icce.rug.nl/infozip/src/zcrypt28.zip
+Source1:	zcrypt28.tar.bz2
 Patch:		%{name}-opt.patch
 BuildRoot:	/tmp/%{name}-%{version}-root
 
