@@ -13,7 +13,7 @@ Source0:	ftp://sunsite.unc.edu/pub/Linux/utils/compress/%{name}540.tar.gz
 # The original source is at ftp://ftp.icce.rug.nl/infozip/src/zcrypt28.zip
 Source1:	zcrypt28.tar.bz2
 Patch:		%{name}-opt.patch
-BuildRoot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 unzip will list, test, or extract files from a ZIP archive, commonly
