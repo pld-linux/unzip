@@ -11,3 +11,98 @@
  # GRR:  this echo is pointless; if user gets this far, no difference to install
  #	@echo 'Be sure to use the install_asm target rather than the install target'
  
+--- unzip-5.40/unix/Makefile~	Mon Dec 25 23:57:06 2000
++++ unzip-5.40/unix/Makefile	Mon Dec 25 23:58:49 2000
+@@ -528,7 +528,7 @@
+ 	@echo\
+  'which is UnZip linked with the DLL).  This target is an example only.'
+ 	@echo ""
+-	$(MAKE) objsdll CC=gcc CF="-O3 -Wall -I. -fPIC -DDLL $(LOC)"
++	$(MAKE) objsdll CC=gcc CF="-Wall -I. -fPIC -DDLL $(LOC)"
+ 	gcc -shared -Wl,-soname,libunzip.so.0 -o libunzip.so.0.4 $(OBJSDLL)
+ 	$(RM) libunzip.so.0 libunzip.so
+ 	$(LN) -s libunzip.so.0.4 libunzip.so.0
+@@ -643,13 +643,13 @@
+ bsdi:		unix_make
+ 	@echo 'NOTE:  use bsdi_noasm target for non-Intel BSD/OS compiles.'
+ 	$(MAKE) unzips CC=gcc2 LD=shlicc2 AS=gcc2\
+-	 CF="-O3 -Wall -I. -DASM_CRC -DBSD $(LOC)" CRC32=crc_gcc
++	 CF="-Wall -I. -DASM_CRC -DBSD $(LOC)" CRC32=crc_gcc
+ 
+ # BSDI BSD/OS
+ bsdi_noasm:	unix_make
+ #	@echo 'NOTE:  use bsd target for non-Intel BSD/OS compiles.'
+ 	$(MAKE) unzips CC=gcc2 LD=shlicc2 AS=gcc2\
+-	 CF="-O3 -Wall -I. -DBSD $(LOC)"
++	 CF="-Wall -I. -DBSD $(LOC)"
+ 
+ # Coherent 3.x/4.x, Mark Williams C.  ``For Coherent's CC, it needs either
+ # -T0 or -T150000 (or bigger) added to the CFLAGS, otherwise the compiler
+@@ -681,7 +681,7 @@
+ freebsd:		unix_make
+ 	@echo 'NOTE:  use bsd target for non-Intel FreeBSD compiles (if any).'
+ 	$(MAKE) unzips CC=gcc LD=gcc AS=gcc\
+-	 CF="-O3 -Wall -I. -DASM_CRC -DBSD $(LOC)"\
++	 CF="-Wall -I. -DASM_CRC -DBSD $(LOC)"\
+ 	 AF="-Di386 $(AF)" CRC32=crc_gcc
+ 
+ # Generic BSDish Unix gcc.  ``The -O3 only works with later versions of gcc;
+@@ -692,7 +692,7 @@
+ # with "echo" instead).
+ #
+ gcc:		unix_make
+-	$(MAKE) unzips CC=gcc LD=gcc CF="-O3 -I. $(LOC)" LF2=""
++	$(MAKE) unzips CC=gcc LD=gcc CF="-I. $(LOC)" LF2=""
+ 	$(STRIP) $(UNZIPS)
+ 
+ # Heurikon HK68 (68010), UniPlus+ System V 5.0, Green Hills C-68000
+@@ -710,7 +710,7 @@
+ isc_gcc:	unix_make
+ 	$(MAKE) unzips AS=gcc CC=gcc LD=gcc CRC32=crc_gcc LF="-shlib $(LF)" \
+ 	 SL="-shlib $(SL)" FL="-shlib $(FL)" \
+-	 LF2="" CF="-O3 -I. -DSYSV -DASM_CRC -DNO_UID_GID -DNEED_PTEM $(LOC)" \
++	 LF2="" CF="-I. -DSYSV -DASM_CRC -DNO_UID_GID -DNEED_PTEM $(LOC)" \
+ 	 AF="-DNO_UNDERLINE -Djecxz=jcxz -DALIGNMENT='.align 16' $(AF)"
+ 	$(STRIP) $(UNZIPS)
+ 
+@@ -726,7 +726,7 @@
+ linux:		unix_make
+ 	@echo 'NOTE:  use linux_noasm target for non-Intel Linux compiles.'
+ 	$(MAKE) unzips CC=gcc LD=gcc AS=gcc\
+-	 CF="-O3 -Wall -I. -DASM_CRC $(LOC) $(CFLAGS)"\
++	 CF="-Wall -I. -DASM_CRC $(LOC) $(CFLAGS)"\
+ 	 AF="-Di386 $(AF) $(LDFLAGS)" CRC32=crc_gcc
+ # GRR:  this echo is pointless; if user gets this far, no difference to install
+ #	@echo 'Be sure to use the install_asm target rather than the install target'
+@@ -743,7 +743,7 @@
+ # (or -O2 or -O) is ignored.  [GRR 960828: test target only]
+ #
+ linux_lcc:	unix_make
+-	$(MAKE) unzips CC=lcc LD=lcc CF="-O3 -Wall -I. -D__inline__= $(LOC)"
++	$(MAKE) unzips CC=lcc LD=lcc CF="-Wall -I. -D__inline__= $(LOC)"
+ 
+ # Linux host with go32 (djgpp) cross-compiler (go32crs.tgz) for 32-bit DOS.
+ linux_dos:	unix_make
+@@ -761,8 +761,8 @@
+ # library).
+ #
+ linux_shlib:	unix_make
+-#	$(MAKE) objsdll CC=gcc CF="-O3 -Wall -I. -fPIC -DDLL $(LOC)"
+-	$(MAKE) objsdll CC=gcc CF="-O3 -Wall -I. -fPIC -DDLL -DASM_CRC $(LOC)"\
++#	$(MAKE) objsdll CC=gcc CF="-Wall -I. -fPIC -DDLL $(LOC)"
++	$(MAKE) objsdll CC=gcc CF="-Wall -I. -fPIC -DDLL -DASM_CRC $(LOC)"\
+ 	 AS=gcc AF="-fPIC -Di386 $(AF)" CRC32=crc_gcc
+ 	ln -sf crc_gcc.pic.o crc32.pic.o
+ 	gcc -shared -Wl,-soname,libunzip.so.0 -o libunzip.so.0.4 $(OBJSDLL)
+@@ -774,9 +774,9 @@
+ # Linux ELF shared library, as above, but using inflate() from zlib (libz.so)
+ # instead of the original UnZip version.  (libz was libgz prior to 0.94)
+ linux_shlibz:	unix_make
+-#	$(MAKE) objsdll CC=gcc CF="-O3 -Wall -I. -fPIC -DDLL -DUSE_ZLIB $(LOC)"
++#	$(MAKE) objsdll CC=gcc CF="-Wall -I. -fPIC -DDLL -DUSE_ZLIB $(LOC)"
+ 	$(MAKE) objsdll CC=gcc AS=gcc AF="-fPIC -Di386 $(AF)" CRC32=crc_gcc\
+-	 CF="-O3 -Wall -I. -fPIC -DDLL -DUSE_ZLIB -DASM_CRC $(LOC)"
++	 CF="-Wall -I. -fPIC -DDLL -DUSE_ZLIB -DASM_CRC $(LOC)"
+ 	ln -sf crc_gcc.pic.o crc32.pic.o
+ 	gcc -shared -Wl,-soname,libunzip.so.0 -o libunzip.so.0.4 $(OBJSDLL)
+ 	ln -sf libunzip.so.0.4 libunzip.so.0
