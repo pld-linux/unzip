@@ -88,7 +88,6 @@ PKZIP та PKUNZIP в╕д PKWARE для MS-DOS, але в багатьох випадках опц╕╖
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 rm -f Makefile
 ln -sf unix/Makefile Makefile
 
