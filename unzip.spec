@@ -54,9 +54,9 @@ ln -sf unix/Makefile Makefile
 
 %build
 %ifarch %{ix86}
-CFLAGS="%{?debug:-O0 -g}%{!?debug:$RPM_OPT_FLAGS}" make linux
+CFLAGS="%{rpmcflags}" make linux
 %else
-CFLAGS="%{?debug:-O0 -g}%{!?debug:$RPM_OPT_FLAGS}" make linux_noasm
+CFLAGS="%{rpmcflags}" make linux_noasm
 %endif
 
 %install
