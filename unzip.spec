@@ -5,11 +5,12 @@ Summary(pl):	Unzip rozpakowuje pliki skompresowane programem pkzip i zgodnymi
 Summary(tr):	pkzip ve benzeri programlarýn ürettiði zip arþivlerini açar
 Name:		unzip
 Version:	5.40
-Release:	2
+Release:	3
 Copyright:	distributable
 Group:		Utilities/Archiving
 Group(pl):	Narzêdzia/Archiwizacja
-Source:		ftp://sunsite.unc.edu/pub/Linux/utils/compress/%{name}540.tar.gz
+Source0:	ftp://sunsite.unc.edu/pub/Linux/utils/compress/%{name}540.tar.gz
+Source1:	ftp://ftp.icce.rug.nl/infozip/src/zcrypt28.zip
 Patch:		%{name}-opt.patch
 BuildRoot:	/tmp/%{name}-%{version}-root
 
@@ -47,6 +48,8 @@ kullanýlýþý farklýdýr.
 
 %prep
 %setup -q 
+unzip -o $RPM_SOURCE_DIR/zcrypt28.zip
+
 %patch -p1 
 ln -sf unix/Makefile Makefile
 
