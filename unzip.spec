@@ -72,34 +72,3 @@ rm -rf $RPM_BUILD_ROOT
 %doc README.gz BUGS.gz
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man1/*
-
-%changelog
-* Thu Feb 10 1999 Micha³ Kuratczyk <kurkens@polbox.com>
-  [5.40-2]
-- added Group(pl)
-- added gzipping documentation
-- fixed pl translation
-
-* Fri Dec 11 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [5.40-1]
-- removed -c %setup option,
-- added gzipping man pages.
-
-* Tue Oct 13 1998 Marcin Korzonek <mkorz@shadow.eu.org>
-  [5.31-4]
-- added pl translation,
-- added using $RPM_OPT_FLAGS during compile,
-- allow building from non root account,
-- removed COPYING and INSTALL from docs.
-
-* Mon Apr 27 1998 Prospector System <bugs@redhat.com>
-- translations modified for de, fr, tr
-
-* Tue Oct 21 1997 Erik Troan <ewt@redhat.com>
-- builds on non i386 platforms
-
-* Mon Oct 20 1997 Otto Hammersmith <otto@redhat.com>
-- updated the version
-
-* Thu Jul 10 1997 Erik Troan <ewt@redhat.com>
-- built against glibc
