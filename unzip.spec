@@ -1,16 +1,16 @@
-Summary:     unpacks .zip files such as those made by pkzip under DOS
-Summary(de): entpackt .zip-Dateien (etwa mit pkzip unter DOS erstellte) 
-Summary(fr): décompresse les fichiers .zip créés par pkzip sous DOS
-Summary(pl): Unzip rozpakowuje pliki skompresowane programem pkzip i zgodnymi
-Summary(tr): pkzip ve benzeri programlarýn ürettiði zip arþivlerini açar
-Name:        unzip
-Version:     5.40
-Release:     2
-Copyright:   distributable
-Group:       Utilities/Archiving
-Group(pl):   Narzêdzia/Archiwizacja
-Source:      ftp://sunsite.unc.edu/pub/Linux/utils/compress/%{name}540.tar.gz
-Patch:       %{name}-opt.patch
+Summary:	unpacks .zip files such as those made by pkzip under DOS
+Summary(de):	entpackt .zip-Dateien (etwa mit pkzip unter DOS erstellte) 
+Summary(fr):	décompresse les fichiers .zip créés par pkzip sous DOS
+Summary(pl):	Unzip rozpakowuje pliki skompresowane programem pkzip i zgodnymi
+Summary(tr):	pkzip ve benzeri programlarýn ürettiði zip arþivlerini açar
+Name:		unzip
+Version:	5.40
+Release:	2
+Copyright:	distributable
+Group:		Utilities/Archiving
+Group(pl):	Narzêdzia/Archiwizacja
+Source:		ftp://sunsite.unc.edu/pub/Linux/utils/compress/%{name}540.tar.gz
+Patch:		%{name}-opt.patch
 BuildRoot:	/tmp/%{name}-%{version}-root
 
 %description
@@ -51,7 +51,7 @@ kullanýlýþý farklýdýr.
 ln -sf unix/Makefile Makefile
 
 %build
-%ifarch i386
+%ifarch i386 i486 i586 i686
 CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" make linux 
 %else
 CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" make linux_noasm 
@@ -59,7 +59,8 @@ CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" make linux_noasm
 
 %install
 rm -rf $RPM_BUILD_ROOT 
-make prefix=$RPM_BUILD_ROOT/usr install
+make install prefix=$RPM_BUILD_ROOT/%{_prefix} \
+	MANDIR=$RPM_BUILD_ROOT/%{_mandir}/man1
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/*
 gzip -9nf README BUGS
