@@ -10,7 +10,7 @@ Summary(tr):	pkzip ve benzeri programların ürettiği zip arşivlerini açar
 Summary(uk):	òÏÚĞÁËÏ×Õ×ÁŞ ÆÁÊÌ¦× .zip
 Name:		unzip
 Version:	5.50
-Release:	3
+Release:	8
 License:	distributable
 Group:		Applications/Archiving
 Source0:	ftp://ftp.info-zip.org/pub/infozip/src/%{name}550.tar.gz
