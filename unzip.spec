@@ -108,14 +108,13 @@ rm -rf $RPM_BUILD_ROOT
 
 bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 
-gzip -9nf README BUGS
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz
+%doc README BUGS
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man*/*
 %lang(fi) %{_mandir}/fi/man*/*
