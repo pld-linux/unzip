@@ -11,8 +11,6 @@ Version:	5.42
 Release:	2
 License:	distributable
 Group:		Applications/Archiving
-Group(de):	Applikationen/Archivierung
-Group(pl):	Aplikacje/Archiwizacja
 Source0:	ftp://ftp.freesoftware.com/pub/infozip/src/%{name}542.tar.gz
 Source1:	%{name}-non-english-man-pages.tar.bz2
 Patch0:		%{name}-opt.patch
