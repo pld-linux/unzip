@@ -62,7 +62,7 @@ CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" make linux_noasm
 
 %install
 rm -rf $RPM_BUILD_ROOT 
-make install prefix=$RPM_BUILD_ROOT/%{_prefix} \
+%{__make} install prefix=$RPM_BUILD_ROOT/%{_prefix} \
 	MANDIR=$RPM_BUILD_ROOT/%{_mandir}/man1
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/*
