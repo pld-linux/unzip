@@ -9,13 +9,13 @@ Summary(ru):	òÁÓĞÁËÏ×İÉË ÆÁÊÌÏ× .zip
 Summary(tr):	pkzip ve benzeri programların ürettiği zip arşivlerini açar
 Summary(uk):	òÏÚĞÁËÏ×Õ×ÁŞ ÆÁÊÌ¦× .zip
 Name:		unzip
-Version:	5.51
-Release:	2
+Version:	5.52
+Release:	1
 License:	distributable
 Group:		Applications/Archiving
-#Source0:	ftp://ftp.info-zip.org/pub/infozip/src/%{name}551.tar.gz
-Source0:	ftp://sunsite.icm.edu.pl/pub/unix/archiving/info-zip/src/%{name}551.tar.gz
-# Source0-md5:	8a25712aac642430d87d21491f7c6bd1
+Source0:	ftp://ftp.info-zip.org/pub/infozip/src/%{name}552.tar.gz
+# Source0-md5:	9d23919999d6eac9217d1f41472034a9
+#Source0:	ftp://sunsite.icm.edu.pl/pub/unix/archiving/info-zip/src/%{name}552.tar.gz
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source1-md5:	d7f8b0b09f6e8d89591b4dc25e335764
 Patch0:		%{name}-opt.patch
