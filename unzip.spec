@@ -5,11 +5,12 @@ Summary(pl): Unzip rozpakowuje pliki skompresowane programem pkzip i zgodnymi
 Summary(tr): pkzip ve benzeri programlarýn ürettiði zip arþivlerini açar
 Name:        unzip
 Version:     5.40
-Release:     1
+Release:     2
 Copyright:   distributable
 Group:       Utilities/Archiving
+Group(pl):   Narzêdzia/Archiwizacja
 Source:      ftp://sunsite.unc.edu/pub/Linux/utils/compress/%{name}540.tar.gz
-Patch:       unzip-opt.patch
+Patch:       %{name}-opt.patch
 Buildroot:   /tmp/%{name}-%{version}-root
 
 %description
@@ -33,9 +34,9 @@ créées avec PKZIP et PKUNZIP de PKWARE pour MS-DOS, mais les options ou
 comportements par défaut diffèrent fréquemment
 
 %description -l pl
-Unzip odczyta zawarto¶æ, przetestuj i rozpakuje archiwum ZIP, czêsto
-spotykane w systemach opartych o MS-DOS. Komplementarny program, zip,
-potrafi tworzyæ archiwa ZIP
+Unzip pozwala na odczytanie zawarto¶ci, przetestowanie i rozpakowanie
+archiwum ZIP, czêsto spotykanego w systemach opartych o MS-DOS.
+Komplementarny program, zip, potrafi tak¿e tworzyæ archiwa ZIP.
 
 %description -l tr
 unzip, MS-DOS sistemlerinde sýkça rastlanan ZIP arþivlerini listeler,
@@ -61,17 +62,24 @@ rm -rf $RPM_BUILD_ROOT
 make prefix=$RPM_BUILD_ROOT/usr install
 
 gzip -9nf $RPM_BUILD_ROOT/usr/man/man1/*
+gzip -9nf README BUGS
 
 %clean
 rm -rf $RPM_BUILD_ROOT 
 
 %files
 %defattr(644, root, root, 755)
-%doc README BUGS 
+%doc README.gz BUGS.gz
 %attr(755, root, root) /usr/bin/*
 %attr(644, root,  man) /usr/man/man1/*
 
 %changelog
+* Thu Feb 10 1999 Micha³ Kuratczyk <kurkens@polbox.com>
+  [5.40-2]
+- added Group(pl)
+- added gzipping documentation
+- fixed pl translation
+
 * Fri Dec 11 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [5.40-1]
 - removed -c %setup option,
