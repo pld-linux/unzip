@@ -107,7 +107,7 @@ ln -sf unix/Makefile Makefile
 %ifarch %{ix86}
 	CF="%{rpmcflags} -I. -Wall -DASM_CRC" \
 	AF="-Di386 %{rpmldflags}" \
-	CRC32="crc_gc"
+	CRC32="crc_gcc"
 %else
 	CF="%{rpmcflags} -I. -Wall"
 %endif
