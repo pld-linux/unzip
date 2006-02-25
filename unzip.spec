@@ -100,14 +100,17 @@ rm -f Makefile
 ln -sf unix/Makefile Makefile
 
 %build
-%{__make} \
-%ifarch %{ix86}
-	linux \
-%else
-	linux_noasm \
-%endif
+%{__make} unzips \
 	CC="%{__cc}" \
-	CF="%{rpmcflags} -I. -DUNIX"
+	LD="%{__cc}" \
+	AS="%{__cc}" \
+%ifarch %{ix86}
+	CF="%{rpmcflags} -I. -Wall -DASM_CRC" \
+	AF="-Di386 %{rpmldflags}" \
+	CRC32="crc_gc"
+%else
+	CF="%{rpmcflags} -I. -Wall"
+%endif
 
 %install
 rm -rf $RPM_BUILD_ROOT
