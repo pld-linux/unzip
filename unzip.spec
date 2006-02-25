@@ -100,17 +100,19 @@ rm -f Makefile
 ln -sf unix/Makefile Makefile
 
 %build
+%{__make} \
 %ifarch %{ix86}
-CFLAGS="%{rpmcflags}" %{__make} linux
+	linux \
 %else
-CFLAGS="%{rpmcflags}" %{__make} linux_noasm
+	linux_noasm \
 %endif
+	CC="%{__cc}" \
+	CF="%{rpmcflags} -I. -DUNIX"
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} \
-	install \
+%{__make} install \
 	prefix=$RPM_BUILD_ROOT%{_prefix} \
 	MANDIR=$RPM_BUILD_ROOT%{_mandir}/man1
 
