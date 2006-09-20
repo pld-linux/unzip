@@ -1,0 +1,8 @@
+- updated to 5.51 (security release).
+- fix for two directory-traversal security holes.
+- fix for central/local directory mismatch security hole.
+- fix for symlink-traversal security hole.
+- fix for textmode data-corruption bug in 16-bit ports.
+- fix to zipgrep to handle archived filenames with spaces in them.
+
+- release 1.
