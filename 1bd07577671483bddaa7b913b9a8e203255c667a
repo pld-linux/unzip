@@ -1,0 +1,10 @@
+- rel 9
+- added security patch1 (patch from RH)
+  CVE: CAN-2003-0282
+  BUG(bugtraq):
+  A vulnerabilitiy in unzip version 5.50 and earlier allows attackers to
+  overwrite arbitrary files during archive extraction by placing invalid
+  (non-printable) characters between two "." characters.  These non-printable
+  characters are filtered, resulting in a ".." sequence.  The Common
+  Vulnerabilities and Exposures project (cve.mitre.org) has assigned the name
+  CAN-2003-0282 to this issue.
