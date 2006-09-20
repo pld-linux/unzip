@@ -10,7 +10,7 @@ Summary(tr):	pkzip ve benzeri programlarýn ürettiði zip arþivlerini açar
 Summary(uk):	òÏÚÐÁËÏ×Õ×ÁÞ ÆÁÊÌ¦× .zip
 Name:		unzip
 Version:	5.52
-Release:	3
+Release:	4
 License:	distributable
 Group:		Applications/Archiving
 Source0:	ftp://ftp.info-zip.org/pub/infozip/src/%{name}552.tar.gz
@@ -120,6 +120,7 @@ rm -rf $RPM_BUILD_ROOT
 	MANDIR=$RPM_BUILD_ROOT%{_mandir}/man1
 
 bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
+rm -f $RPM_BUILD_ROOT%{_mandir}/README.unzip-non-english-man-pages
 
 %clean
 rm -rf $RPM_BUILD_ROOT
