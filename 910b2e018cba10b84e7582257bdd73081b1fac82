@@ -1,0 +1,6 @@
+- rel 10
+- Security fix to fix
+  Note:
+  The fix which was implemented in rel 9 may
+  not have protected against all methods of
+  exploiting this vulnerability.
