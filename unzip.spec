@@ -102,14 +102,15 @@ ln -sf unix/Makefile Makefile
 %build
 %{__make} unzips \
 	CC="%{__cc}" \
-	LD="%{__cc}" \
 	AS="%{__cc}" \
 %ifarch %{ix86}
 	CF="%{rpmcflags} -I. -Wall -DASM_CRC -DLARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64" \
 	AF="-Di386 %{rpmldflags}" \
-	CRC32="crc_gcc"
+	CRC32="crc_gcc" \
+	LD="%{__cc} %{rpmcflags} -I. -Wall -DASM_CRC -DLARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64"
 %else
-	CF="%{rpmcflags} -I. -Wall"
+	CF="%{rpmcflags} -I. -Wall" \
+	LD="%{__cc} %{rpmcflags} -I. -Wall" 
 %endif
 
 %install
