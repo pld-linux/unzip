@@ -1,13 +1,13 @@
 Summary:	Unpacks .zip files such as those made by pkzip under DOS
-Summary(de.UTF-8):   entpackt .zip-Dateien (etwa mit pkzip unter DOS erstellte)
-Summary(es.UTF-8):   Descompacta archivos con extensión .zip, como los que crea pkzip en DOS
-Summary(fr.UTF-8):   décompresse les fichiers .zip créés par pkzip sous DOS
-Summary(ja.UTF-8):   Zipファイル解凍ユーティリティー
-Summary(pl.UTF-8):   Unzip rozpakowuje pliki skompresowane programem pkzip i zgodnymi
-Summary(pt_BR.UTF-8):   Descompacta arquivos com extensão .zip, como os criados pelo pkzip no DOS
-Summary(ru.UTF-8):   Распаковщик файлов .zip
-Summary(tr.UTF-8):   pkzip ve benzeri programların ürettiği zip arşivlerini açar
-Summary(uk.UTF-8):   Розпаковувач файлів .zip
+Summary(de.UTF-8):	entpackt .zip-Dateien (etwa mit pkzip unter DOS erstellte)
+Summary(es.UTF-8):	Descompacta archivos con extensión .zip, como los que crea pkzip en DOS
+Summary(fr.UTF-8):	décompresse les fichiers .zip créés par pkzip sous DOS
+Summary(ja.UTF-8):	Zipファイル解凍ユーティリティー
+Summary(pl.UTF-8):	Unzip rozpakowuje pliki skompresowane programem pkzip i zgodnymi
+Summary(pt_BR.UTF-8):	Descompacta arquivos com extensão .zip, como os criados pelo pkzip no DOS
+Summary(ru.UTF-8):	Распаковщик файлов .zip
+Summary(tr.UTF-8):	pkzip ve benzeri programların ürettiği zip arşivlerini açar
+Summary(uk.UTF-8):	Розпаковувач файлів .zip
 Name:		unzip
 Version:	5.52
 Release:	4
