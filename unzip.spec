@@ -1,13 +1,13 @@
 Summary:	Unpacks .zip files such as those made by pkzip under DOS
-Summary(de):	entpackt .zip-Dateien (etwa mit pkzip unter DOS erstellte)
-Summary(es):	Descompacta archivos con extensiСn .zip, como los que crea pkzip en DOS
-Summary(fr):	dИcompresse les fichiers .zip crИИs par pkzip sous DOS
-Summary(ja):	Zip╔у╔║╔╓╔К╡РеЮ╔Ф║╪╔ф╔ё╔Й╔ф╔ё║╪
-Summary(pl):	Unzip rozpakowuje pliki skompresowane programem pkzip i zgodnymi
-Summary(pt_BR):	Descompacta arquivos com extensЦo .zip, como os criados pelo pkzip no DOS
-Summary(ru):	Распаковщик файлов .zip
-Summary(tr):	pkzip ve benzeri programlarЩn ЭrettiПi zip arЧivlerini aГar
-Summary(uk):	Розпаковувач файл╕в .zip
+Summary(de.UTF-8):   entpackt .zip-Dateien (etwa mit pkzip unter DOS erstellte)
+Summary(es.UTF-8):   Descompacta archivos con extensiцЁn .zip, como los que crea pkzip en DOS
+Summary(fr.UTF-8):   dц╘compresse les fichiers .zip crц╘ц╘s par pkzip sous DOS
+Summary(ja.UTF-8):   ZipЦ┐∙Ц┌║Ц┌╓Ц┐╚Х╖ёЕ┤█Ц┐╕Ц┐╪Ц┐├Ц┌ёЦ┐╙Ц┐├Ц┌ёЦ┐╪
+Summary(pl.UTF-8):   Unzip rozpakowuje pliki skompresowane programem pkzip i zgodnymi
+Summary(pt_BR.UTF-8):   Descompacta arquivos com extensцёo .zip, como os criados pelo pkzip no DOS
+Summary(ru.UTF-8):   п═п╟я│п©п╟п╨п╬п╡я┴п╦п╨ я└п╟п╧п╩п╬п╡ .zip
+Summary(tr.UTF-8):   pkzip ve benzeri programlarд╠n ц╪rettiд÷i zip arе÷ivlerini aц╖ar
+Summary(uk.UTF-8):   п═п╬п╥п©п╟п╨п╬п╡я┐п╡п╟я┤ я└п╟п╧п╩я√п╡ .zip
 Name:		unzip
 Version:	5.52
 Release:	4
@@ -31,64 +31,64 @@ archives; both programs are compatible with archives created by
 PKWARE's PKZIP and PKUNZIP for MS-DOS, but in many cases the program
 options or default behaviors differ.
 
-%description -l de
+%description -l de.UTF-8
 unzip dient zum Auflisten, Testen und Extrahieren von Dateien aus
 ZIP-Archiven, wie sie oft unter MS-DOS erstellt werden. Das
 Partnerprogramm ZIP erstellt ZIP-Archive. Beide Programme sind
-kompatibel zu Archiven, die mit PKWARE ZIP und PKUNZIP fЭr MS-DOS
+kompatibel zu Archiven, die mit PKWARE ZIP und PKUNZIP fц╪r MS-DOS
 komprimiert wurden, doch viele der Optionen und Standardeinstellungen
 sind anders.
 
-%description -l es
-Descompacta archivos con extensiСn .zip, como los que se crean por
+%description -l es.UTF-8
+Descompacta archivos con extensiцЁn .zip, como los que se crean por
 pkzip en DOS
 
-%description -l fr
-unzip liste, teste ou extrait des fichiers d'une archive ZIP. zip crИe
+%description -l fr.UTF-8
+unzip liste, teste ou extrait des fichiers d'une archive ZIP. zip crц╘e
 des archives ZIP ; les deux programmes sont compatibles avec les
-archives crИИes avec PKZIP et PKUNZIP de PKWARE pour MS-DOS, mais les
-options ou comportements par dИfaut diffХrent frИquemment
+archives crц╘ц╘es avec PKZIP et PKUNZIP de PKWARE pour MS-DOS, mais les
+options ou comportements par dц╘faut diffц╗rent frц╘quemment
 
-%description -l ja
-unzip ╔Ф║╪╔ф╔ё╔Й╔ф╔ё╓о║╒zip ╫Я╦к╓н╔у╔║╔╓╔Ки╫╪╗║╒╔ф╔╧╔х║╒╡РеЮ╓Р╧т╓╕╓н╓к
-╩хмя╓╥╓ч╓╧║ёzip ╫Я╦к╓о MS-DOS ╔╥╔╧╔ф╔Ю╓г╪Г╓к╦╚╓И╓Л╓ч╓╧║ё zip
-╔Ф║╪╔ф╔ё╔Й╔ф╔ё╓о zip ╫Я╦к╓Р╨Н╓К zip ╔я╔ц╔╠║╪╔╦╓к╢ч╓ч╓Л╓ч╓╧║ё zip ╓х
-unzip ╓о╓и╓а╓И╓Б MS-DOS ╬Е╓н PKWARE(R) ╓н PKZIP ╓к╓Х╓ц╓ф╨Ню╝╓╣╓Л╓©
-╫Я╦к╓х╦ъ╢╧ю╜╓╛╓╒╓Й╓ч╓╧╓╛║╒╔в╔М╔╟╔И╔Ю╓н╔╙╔в╔╥╔Г╔С╓х╔г╔у╔╘╔К╔х╓н©╤иЯ╓о
-╓╓╓╞╓д╓╚╓нею╓г╟Ц╓╓╓╛╓╒╓Й╓ч╓╧║ё
+%description -l ja.UTF-8
+unzip Ц┐╕Ц┐╪Ц┐├Ц┌ёЦ┐╙Ц┐├Ц┌ёЦ│╞Ц─│zip Ф⌡╦Е╨╚Ц│╝Ц┐∙Ц┌║Ц┌╓Ц┐╚Х║╗Г╓╨Ц─│Ц┐├Ц┌╧Ц┐┬Ц─│Х╖ёЕ┤█Ц┌▓Х║▄Ц│├Ц│╝Ц│╚
+Д╫©Г■╗Ц│≈Ц│╬Ц│≥Ц─┌zip Ф⌡╦Е╨╚Ц│╞ MS-DOS Ц┌╥Ц┌╧Ц┐├Ц┐═Ц│╖Д╦╩Ц│╚Х╕▀Ц┌┴Ц┌▄Ц│╬Ц│≥Ц─┌ zip
+Ц┐╕Ц┐╪Ц┐├Ц┌ёЦ┐╙Ц┐├Ц┌ёЦ│╞ zip Ф⌡╦Е╨╚Ц┌▓Д╫°Ц┌▀ zip Ц┐▒Ц┐┐Ц┌╠Ц┐╪Ц┌╦Ц│╚Е░╚Ц│╬Ц┌▄Ц│╬Ц│≥Ц─┌ zip Ц│╗
+unzip Ц│╞Ц│╘Ц│║Ц┌┴Ц┌┌ MS-DOS Д╦┼Ц│╝ PKWARE(R) Ц│╝ PKZIP Ц│╚Ц┌┬Ц│ёЦ│╕Д╫°Ф┬░Ц│∙Ц┌▄Ц│÷
+Ф⌡╦Е╨╚Ц│╗Д╨▓Ф▐⌡Ф─╖Ц│▄Ц│┌Ц┌┼Ц│╬Ц│≥Ц│▄Ц─│Ц┐≈Ц┐╜Ц┌╟Ц┐╘Ц┐═Ц│╝Ц┌╙Ц┐≈Ц┌╥Ц┐╖Ц┐ЁЦ│╗Ц┐┤Ц┐∙Ц┌╘Ц┐╚Ц┐┬Ц│╝Ф▄╞Х┬·Ц│╞
+Ц│└Ц│▐Ц│╓Ц│▀Ц│╝Г┌╧Ц│╖И│∙Ц│└Ц│▄Ц│┌Ц┌┼Ц│╬Ц│≥Ц─┌
 
-zip ╫Я╦к╓н╔у╔║╔╓╔Ки╫╪╗║╒╔ф╔╧╔х║╒╡РеЮ╓Р╧т╓╕и╛мв╓╛╓╒╓К╓й╓И║╒ unzip
-╔я╔ц╔╠║╪╔╦╓Р╔╓╔С╔╧╔х║╪╔К╓╥╓ч╓╥╓Г╓╕║ё
+zip Ф⌡╦Е╨╚Ц│╝Ц┐∙Ц┌║Ц┌╓Ц┐╚Х║╗Г╓╨Ц─│Ц┐├Ц┌╧Ц┐┬Ц─│Х╖ёЕ┤█Ц┌▓Х║▄Ц│├Е©┘Х╕│Ц│▄Ц│┌Ц┌▀Ц│╙Ц┌┴Ц─│ unzip
+Ц┐▒Ц┐┐Ц┌╠Ц┐╪Ц┌╦Ц┌▓Ц┌╓Ц┐ЁЦ┌╧Ц┐┬Ц┐╪Ц┐╚Ц│≈Ц│╬Ц│≈Ц┌┤Ц│├Ц─┌
 
-%description -l pl
-Unzip pozwala na odczytanie zawarto╤ci, przetestowanie i rozpakowanie
-archiwum ZIP, czЙsto spotykanego w systemach opartych o MS-DOS.
-Komplementarny program, zip, potrafi tak©e tworzyФ archiwa ZIP.
+%description -l pl.UTF-8
+Unzip pozwala na odczytanie zawartoе⌡ci, przetestowanie i rozpakowanie
+archiwum ZIP, czд≥sto spotykanego w systemach opartych o MS-DOS.
+Komplementarny program, zip, potrafi takе╪e tworzyд┤ archiwa ZIP.
 
-%description -l pt_BR
-Descompacta arquivos com extensЦo .zip, como os criados pelo pkzip no
+%description -l pt_BR.UTF-8
+Descompacta arquivos com extensцёo .zip, como os criados pelo pkzip no
 DOS
 
-%description -l ru
-Unzip выдает список, проверяет целостность и извлекает файлы из
-архивов ZIP, довольно широко распространенных в мире DOS.
-Сопутствующая программа, zip, создает архивы ZIP. Обе программы
-совместимы с архивами созданными PKZIP и PKUNZIP от PKWARE для MS-DOS,
-но во многих случаях опции или умолчания отличаются.
+%description -l ru.UTF-8
+Unzip п╡я▀п╢п╟п╣я┌ я│п©п╦я│п╬п╨, п©я─п╬п╡п╣я─я▐п╣я┌ я├п╣п╩п╬я│я┌п╫п╬я│я┌я▄ п╦ п╦п╥п╡п╩п╣п╨п╟п╣я┌ я└п╟п╧п╩я▀ п╦п╥
+п╟я─я┘п╦п╡п╬п╡ ZIP, п╢п╬п╡п╬п╩я▄п╫п╬ я┬п╦я─п╬п╨п╬ я─п╟я│п©я─п╬я│я┌я─п╟п╫п╣п╫п╫я▀я┘ п╡ п╪п╦я─п╣ DOS.
+п║п╬п©я┐я┌я│я┌п╡я┐я▌я┴п╟я▐ п©я─п╬пЁя─п╟п╪п╪п╟, zip, я│п╬п╥п╢п╟п╣я┌ п╟я─я┘п╦п╡я▀ ZIP. п·п╠п╣ п©я─п╬пЁя─п╟п╪п╪я▀
+я│п╬п╡п╪п╣я│я┌п╦п╪я▀ я│ п╟я─я┘п╦п╡п╟п╪п╦ я│п╬п╥п╢п╟п╫п╫я▀п╪п╦ PKZIP п╦ PKUNZIP п╬я┌ PKWARE п╢п╩я▐ MS-DOS,
+п╫п╬ п╡п╬ п╪п╫п╬пЁп╦я┘ я│п╩я┐я┤п╟я▐я┘ п╬п©я├п╦п╦ п╦п╩п╦ я┐п╪п╬п╩я┤п╟п╫п╦я▐ п╬я┌п╩п╦я┤п╟я▌я┌я│я▐.
 
-%description -l tr
-unzip, MS-DOS sistemlerinde sЩkГa rastlanan ZIP arЧivlerini listeler,
-iГeriklerini doПrular ve aГar. Bu programa eЧlik eden zip, ZIP
-arЧivleri oluЧturmakta kullanЩlЩr. Her iki program da MS-DOS iГin
-PKWARE'in PKZIP ve PKUNZIP uygulamalarЩ ile uyumludur ancak ГoПu
-durumda seГeneklerinin kullanЩlЩЧЩ farklЩdЩr.
+%description -l tr.UTF-8
+unzip, MS-DOS sistemlerinde sд╠kц╖a rastlanan ZIP arе÷ivlerini listeler,
+iц╖eriklerini doд÷rular ve aц╖ar. Bu programa eе÷lik eden zip, ZIP
+arе÷ivleri oluе÷turmakta kullanд╠lд╠r. Her iki program da MS-DOS iц╖in
+PKWARE'in PKZIP ve PKUNZIP uygulamalarд╠ ile uyumludur ancak ц╖oд÷u
+durumda seц╖eneklerinin kullanд╠lд╠е÷д╠ farklд╠dд╠r.
 
-%description -l uk
-Unzip вида╓ перел╕к, перев╕ря╓ ц╕л╕сн╕сть та видобува╓ файли з арх╕в╕в
-ZIP, досить широко розповсюджених у св╕т╕ DOS. В╕дпов╕дна програма,
-zip, створю╓ арх╕ви ZIP. Обидв╕ програми сум╕сн╕ з арх╕вами створеними
-PKZIP та PKUNZIP в╕д PKWARE для MS-DOS, але в багатьох випадках опц╕╖
-або умовчання в╕др╕зняються.
+%description -l uk.UTF-8
+Unzip п╡п╦п╢п╟я■ п©п╣я─п╣п╩я√п╨, п©п╣я─п╣п╡я√я─я▐я■ я├я√п╩я√я│п╫я√я│я┌я▄ я┌п╟ п╡п╦п╢п╬п╠я┐п╡п╟я■ я└п╟п╧п╩п╦ п╥ п╟я─я┘я√п╡я√п╡
+ZIP, п╢п╬я│п╦я┌я▄ я┬п╦я─п╬п╨п╬ я─п╬п╥п©п╬п╡я│я▌п╢п╤п╣п╫п╦я┘ я┐ я│п╡я√я┌я√ DOS. п▓я√п╢п©п╬п╡я√п╢п╫п╟ п©я─п╬пЁя─п╟п╪п╟,
+zip, я│я┌п╡п╬я─я▌я■ п╟я─я┘я√п╡п╦ ZIP. п·п╠п╦п╢п╡я√ п©я─п╬пЁя─п╟п╪п╦ я│я┐п╪я√я│п╫я√ п╥ п╟я─я┘я√п╡п╟п╪п╦ я│я┌п╡п╬я─п╣п╫п╦п╪п╦
+PKZIP я┌п╟ PKUNZIP п╡я√п╢ PKWARE п╢п╩я▐ MS-DOS, п╟п╩п╣ п╡ п╠п╟пЁп╟я┌я▄п╬я┘ п╡п╦п©п╟п╢п╨п╟я┘ п╬п©я├я√я≈
+п╟п╠п╬ я┐п╪п╬п╡я┤п╟п╫п╫я▐ п╡я√п╢я─я√п╥п╫я▐я▌я┌я▄я│я▐.
 
 %prep
 %setup -q
