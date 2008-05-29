@@ -1,0 +1,25 @@
+--- unzip-5.52/extract.c.orig	2005-02-26 05:47:30.000000000 +0100
++++ unzip-5.52/extract.c	2008-05-29 18:33:08.000000000 +0200
+@@ -120,6 +120,8 @@
+   "   skipping: %-22s  need %s compat. v%u.%u (can do v%u.%u)\n";
+ static ZCONST char Far ComprMsgNum[] =
+   "   skipping: %-22s  unsupported compression method %u\n";
++static ZCONST char Far SevenZipHint[] =
++  "   hint: compression method 99 means 'WinZip 9+ AES encryption'. try to use 7-zip instead of unzip.\n";
+ #ifndef SFX
+    static ZCONST char Far ComprMsgName[] =
+      "   skipping: %-22s  `%s' method not supported\n";
+@@ -847,9 +849,13 @@
+                   LoadFarStringSmall(ComprNames[G.crec.compression_method])));
+             else
+ #endif
++            {
+                 Info(slide, 0x401, ((char *)slide, LoadFarString(ComprMsgNum),
+                   FnFilter1(G.filename),
+                   G.crec.compression_method));
++                if (G.crec.compression_method == 99 )
++                    Info(slide, 0x401, ((char *)slide, LoadFarString(SevenZipHint)));
++            }
+         }
+         return 0;
+     }
