@@ -1,3 +1,6 @@
+#
+# TODO:		bzip2 support
+#
 Summary:	Unpacks .zip files such as those made by pkzip under DOS
 Summary(de.UTF-8):	entpackt .zip-Dateien (etwa mit pkzip unter DOS erstellte)
 Summary(es.UTF-8):	Descompacta archivos con extensión .zip, como los que crea pkzip en DOS
@@ -9,17 +12,16 @@ Summary(ru.UTF-8):	Распаковщик файлов .zip
 Summary(tr.UTF-8):	pkzip ve benzeri programların ürettiği zip arşivlerini açar
 Summary(uk.UTF-8):	Розпаковувач файлів .zip
 Name:		unzip
-Version:	5.52
-Release:	6
+Version:	6.00
+Release:	1
 License:	distributable
 Group:		Applications/Archiving
-Source0:	ftp://ftp.info-zip.org/pub/infozip/src/%{name}552.tar.gz
-# Source0-md5:	9d23919999d6eac9217d1f41472034a9
+Source0:	ftp://ftp.info-zip.org/pub/infozip/src/%{name}60.tgz
+# Source0-md5:	62b490407489521db863b523a7f86375
 #Source0:	ftp://sunsite.icm.edu.pl/pub/unix/archiving/info-zip/src/%{name}552.tar.gz
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source1-md5:	d7f8b0b09f6e8d89591b4dc25e335764
 Patch0:		%{name}-opt.patch
-Patch1:		%{name}-CAN-2005-2475.patch
 Patch2:		%{name}-cve-2005-4667.patch
 Patch3:		%{name}-method99_hint.patch
 URL:		http://www.info-zip.org/
@@ -92,27 +94,26 @@ PKZIP та PKUNZIP від PKWARE для MS-DOS, але в багатьох ви�
 або умовчання відрізняються.
 
 %prep
-%setup -q
+%setup -q -n %{name}60
 %patch0 -p1
-%patch1 -p1
 %patch2 -p1
 %patch3 -p1
 
-rm -f Makefile
 ln -sf unix/Makefile Makefile
 
 %build
+# NOTE: unix/configure creates flags file with guessed values
 %{__make} unzips \
 	CC="%{__cc}" \
 	AS="%{__cc}" \
 %ifarch %{ix86}
-	CF="%{rpmcflags} -I. -Wall -DASM_CRC -DLARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64" \
+	CF="%{rpmcflags} -I. -Wall -DASM_CRC -DLARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -DLARGE_FILE_SUPPORT -DUNICODE_SUPPORT -DUNICODE_WCHAR -DUNICODE_SUPPORT -DUTF8_MAYBE_NATIVE -DNO_LCHMOD -DHAVE_DIRENT_H -DHAVE_TERMIOS_H -D_MBCS" \
 	AF="-Di386 %{rpmldflags}" \
-	CRC32="crc_gcc" \
-	LD="%{__cc} %{rpmcflags} -I. -Wall -DASM_CRC -DLARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64"
+	CRCA_O="crc_gcc.o" \
+	LD="%{__cc} %{rpmcflags} -I. -Wall -DASM_CRC -DLARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -DLARGE_FILE_SUPPORT -DUNICODE_SUPPORT -DUNICODE_WCHAR -DUNICODE_SUPPORT -DUTF8_MAYBE_NATIVE -DNO_LCHMOD -DHAVE_DIRENT_H -DHAVE_TERMIOS_H -D_MBCS"
 %else
 	CF="%{rpmcflags} -I. -Wall" \
-	LD="%{__cc} %{rpmcflags} -I. -Wall" 
+	LD="%{__cc} %{rpmcflags} -I. -Wall"
 %endif
 
 %install
@@ -130,7 +131,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README BUGS
+%doc BUGS COPYING.OLD History.600 LICENSE README ToDo WHERE file_id.diz *.txt proginfo
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man*/*
 %lang(fi) %{_mandir}/fi/man*/*
