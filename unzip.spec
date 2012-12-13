@@ -13,7 +13,7 @@ Summary(tr.UTF-8):	pkzip ve benzeri programların ürettiği zip arşivlerini a�
 Summary(uk.UTF-8):	Розпаковувач файлів .zip
 Name:		unzip
 Version:	6.00
-Release:	1
+Release:	2
 License:	distributable
 Group:		Applications/Archiving
 Source0:	ftp://ftp.info-zip.org/pub/infozip/src/%{name}60.tgz
@@ -26,6 +26,8 @@ Patch2:		%{name}-cve-2005-4667.patch
 Patch3:		%{name}-method99_hint.patch
 URL:		http://www.info-zip.org/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define		Werror_cflags	%{nil}
 
 %description
 unzip will list, test, or extract files from a ZIP archive, commonly
