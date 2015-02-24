@@ -13,7 +13,7 @@ Summary(tr.UTF-8):	pkzip ve benzeri programların ürettiği zip arşivlerini a�
 Summary(uk.UTF-8):	Розпаковувач файлів .zip
 Name:		unzip
 Version:	6.00
-Release:	2
+Release:	3
 License:	distributable
 Group:		Applications/Archiving
 Source0:	ftp://ftp.info-zip.org/pub/infozip/src/%{name}60.tgz
