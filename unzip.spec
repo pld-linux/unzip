@@ -13,7 +13,7 @@ Summary(tr.UTF-8):	pkzip ve benzeri programların ürettiği zip arşivlerini a�
 Summary(uk.UTF-8):	Розпаковувач файлів .zip
 Name:		unzip
 Version:	6.00
-Release:	4
+Release:	5
 License:	distributable
 Group:		Applications/Archiving
 Source0:	ftp://ftp.info-zip.org/pub/infozip/src/%{name}60.tgz
@@ -21,9 +21,7 @@ Source0:	ftp://ftp.info-zip.org/pub/infozip/src/%{name}60.tgz
 #Source0:	ftp://sunsite.icm.edu.pl/pub/unix/archiving/info-zip/src/%{name}552.tar.gz
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source1-md5:	d7f8b0b09f6e8d89591b4dc25e335764
-Patch100:	%{name}-opt.patch
-Patch101:	%{name}-cve-2005-4667.patch
-Patch102:	%{name}-method99_hint.patch
+Patch100:	unzip-opt.patch
 # Not sent to upstream.
 Patch1: unzip-6.0-bzip2-configure.patch
 # Upstream plans to do this in zip (hopefully also in unzip).
@@ -34,8 +32,9 @@ Patch3: unzip-6.0-close.patch
 # Reported to upstream: http://www.info-zip.org/board/board.pl?m-1259575993/
 Patch4: unzip-6.0-attribs-overflow.patch
 # Not sent to upstream, as it's Fedora/RHEL specific.
-# Modify the configure script not to request the strip of binaries.
-Patch5: unzip-6.0-nostrip.patch
+# Modify the configure script to accept var LFLAGS2 so linking can be configurable
+# from the spec file. In addition '-s' is still removed as before
+Patch5: unzip-6.0-configure.patch
 Patch6: unzip-6.0-manpage-fix.patch
 # Update match.c with recmatch() from zip 3.0's util.c
 # This also resolves the license issue in that old function.
@@ -48,6 +47,7 @@ Patch9: unzip-6.0-caseinsensitive.patch
 # downstream fix for "-Werror=format-security"
 # upstream doesn't want hear about this option again
 Patch10: unzip-6.0-format-secure.patch
+
 Patch11: unzip-6.0-valgrind.patch
 Patch12: unzip-6.0-x-option.patch
 Patch13: unzip-6.0-overflow.patch
@@ -55,10 +55,30 @@ Patch14: unzip-6.0-cve-2014-8139.patch
 Patch15: unzip-6.0-cve-2014-8140.patch
 Patch16: unzip-6.0-cve-2014-8141.patch
 Patch17: unzip-6.0-overflow-long-fsize.patch
+
 # Fix heap overflow and infinite loop when invalid input is given (#1260947)
 Patch18: unzip-6.0-heap-overflow-infloop.patch
+
 # support non-{latin,unicode} encoding
 Patch19: unzip-6.0-alt-iconv-utf8.patch
+Patch20: unzip-6.0-alt-iconv-utf8-print.patch
+Patch21: 0001-Fix-CVE-2016-9844-rhbz-1404283.patch
+
+# restore unix timestamp accurately
+Patch22: unzip-6.0-timestamp.patch
+
+# fix possible heap based stack overflow in passwd protected files
+Patch23: unzip-6.0-cve-2018-1000035-heap-based-overflow.patch
+
+Patch24: unzip-6.0-cve-2018-18384.patch
+
+# covscan issues
+Patch25: unzip-6.0-COVSCAN-fix-unterminated-string.patch
+
+Patch26: unzip-zipbomb-part1.patch
+Patch27: unzip-zipbomb-part2.patch
+Patch28: unzip-zipbomb-part3.patch
+Patch29: unzip-zipbomb-manpage.patch
 URL:		http://www.info-zip.org/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -133,30 +153,36 @@ PKZIP та PKUNZIP від PKWARE для MS-DOS, але в багатьох ви�
 %prep
 %setup -q -n %{name}60
 %patch100 -p1
-%patch101 -p1
-%patch102 -p1
+%patch1 -p1
+%patch2 -p1
+%patch3 -p1
+%patch4 -p1
+%patch5 -p1
+%patch6 -p1
+%patch7 -p1
+%patch8 -p1
+%patch9 -p1
+%patch10 -p1
+%patch11 -p1
+%patch12 -p1
+%patch13 -p1
+%patch14 -p1
+%patch15 -p1
+%patch16 -p1
+%patch17 -p1
+%patch18 -p1
+%patch19 -p1
+%patch20 -p1
+%patch21 -p1
+%patch22 -p1
+%patch23 -p1
+%patch24 -p1
+%patch25 -p1
 
-%patch1 -p1 -b .bzip2-configure
-%patch2 -p1 -b .exec-shield
-%patch3 -p1 -b .close
-%patch4 -p1 -b .attribs-overflow
-%patch5 -p1 -b .nostrip
-%patch6 -p1 -b .manpage-fix
-%patch7 -p1 -b .recmatch
-%patch8 -p1 -b .symlink
-%patch9 -p1 -b .caseinsensitive
-%patch10 -p1 -b .format-secure
-%patch11 -p1 -b .valgrind
-%patch12 -p1 -b .x-option
-%patch13 -p1 -b .overflow
-%patch14 -p1 -b .cve-2014-8139
-%patch15 -p1 -b .cve-2014-8140
-%patch16 -p1 -b .cve-2014-8141
-%patch17 -p1 -b .overflow-long-fsize
-%patch18 -p1 -b .heap-overflow-infloop
-%patch19 -p1 -b .iconv
-
-ln -sf unix/Makefile Makefile
+%patch26 -p1
+%patch27 -p1
+%patch28 -p1
+%patch29 -p1
 
 %build
 # IZ_HAVE_UXUIDGID is needed for right functionality of unzip -X
@@ -171,20 +197,20 @@ X86_OPT1="-Di386"
 X86_OPT2="-DASM_CRC"
 %endif
 
-%{__make} unzips \
+%{__make} -f unix/Makefile generic \
 	CC="%{__cc}" \
 	AS="%{__cc}" \
-	CF="%{rpmcppflags} %{rpmcflags} -I. -Wall ${X86_OPT2} -DLARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -DLARGE_FILE_SUPPORT -DUNICODE_SUPPORT -DUNICODE_WCHAR -DUNICODE_SUPPORT -DUTF8_MAYBE_NATIVE -DNO_LCHMOD -DHAVE_DIRENT_H -DHAVE_TERMIOS_H -D_MBCS -DNOMEMCPY -DIZ_HAVE_UXUIDGID" \
+	CF_NOOPT="%{rpmcppflags} %{rpmcflags} -I. -Wall ${X86_OPT2} -DLARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -DLARGE_FILE_SUPPORT -DUNICODE_SUPPORT -DUNICODE_WCHAR -DUNICODE_SUPPORT -DUTF8_MAYBE_NATIVE -DNO_LCHMOD -DHAVE_DIRENT_H -DHAVE_TERMIOS_H -D_MBCS -DNOMEMCPY -DIZ_HAVE_UXUIDGID" \
 	AF="${X86_OPT} %{rpmldflags}" \
 %ifarch %{ix86}
 	CRCA_O="crc_gcc.o" \
 %endif
-	LD="%{__cc} %{rpmldflags}"
+	LFLAGS2="%{rpmldflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install \
+%{__make} -f unix/Makefile install \
 	prefix=$RPM_BUILD_ROOT%{_prefix} \
 	MANDIR=$RPM_BUILD_ROOT%{_mandir}/man1
 
