@@ -13,7 +13,7 @@ Summary(tr.UTF-8):	pkzip ve benzeri programların ürettiği zip arşivlerini a�
 Summary(uk.UTF-8):	Розпаковувач файлів .zip
 Name:		unzip
 Version:	6.00
-Release:	5
+Release:	6
 License:	distributable
 Group:		Applications/Archiving
 Source0:	ftp://ftp.info-zip.org/pub/infozip/src/%{name}60.tgz
@@ -79,6 +79,10 @@ Patch26: unzip-zipbomb-part1.patch
 Patch27: unzip-zipbomb-part2.patch
 Patch28: unzip-zipbomb-part3.patch
 Patch29: unzip-zipbomb-manpage.patch
+Patch30: unzip-zipbomb-part4.patch
+Patch31: unzip-zipbomb-part5.patch
+Patch32: unzip-zipbomb-part6.patch
+Patch33: unzip-zipbomb-switch.patch
 URL:		http://www.info-zip.org/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -183,6 +187,10 @@ PKZIP та PKUNZIP від PKWARE для MS-DOS, але в багатьох ви�
 %patch27 -p1
 %patch28 -p1
 %patch29 -p1
+%patch30 -p1
+%patch31 -p1
+%patch32 -p1
+%patch33 -p1
 
 %build
 # IZ_HAVE_UXUIDGID is needed for right functionality of unzip -X
